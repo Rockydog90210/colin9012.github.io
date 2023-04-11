@@ -364,6 +364,7 @@ function v(startNode, endNode) {
         if(currentNode.isGoal) {
             console.log("Found goal!");
             // Race to bottom backtracks from the goal using the parents to draw the line.
+            pen.fillStyle="rgb(255,0,0)";pen.beginPath();pen.arc(currentNode.x,currentNode.y,6,0,2*Math.PI);pen.fill();
             raceToBottom(currentNode);
             return;
         }
@@ -467,7 +468,7 @@ function getSmallestIndex(n) {
   return min;
 }
 function raceToBottom(n) {
-  if(n.isStart) {pen.fillStyle="green";pen.beginPath();pen.arc(n.x,n.y,16,0,2*Math.PI);pen.fill();return n;}
+  if(n.isStart) {pen.fillStyle="rgb(0,255,0)";pen.beginPath();pen.arc(n.x,n.y,6,0,2*Math.PI);pen.fill();return n;}
   if(n.floor!=n.parent.floor) {return raceToBottom(n.parent);}
   pen.beginPath();
     //pen.setLineDash([10,10]);
