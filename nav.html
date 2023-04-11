@@ -467,7 +467,7 @@ function getSmallestIndex(n) {
   return min;
 }
 function raceToBottom(n) {
-  if(n.isStart) {return n;}
+  if(n.isStart) {pen.fillStyle="green";pen.beginPath();pen.arc(n.x,n.y,16,0,2*Math.PI);pen.fill();return n;}
   if(n.floor!=n.parent.floor) {return raceToBottom(n.parent);}
   pen.beginPath();
     //pen.setLineDash([10,10]);
