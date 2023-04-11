@@ -428,9 +428,7 @@ if(startingLocation!="Commons" && startingLocation!="Main Office") {
 if(endingLocation!="Commons" && endingLocation!="Main Office") {
     endingLocation=Number(endingLocation);
 }
-console.log(roomToNode.get("149"));
-console.log(roomToNode.get(endingLocation));
-alert(roomToNode.get(startingLocation));
+
 v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
 
 function mousePressed(e) {
