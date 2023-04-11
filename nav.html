@@ -450,6 +450,7 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
     endingLocation=Number(endingLocation);
 }
         function onWindowChange() {
+            const mapp = document.getElementById("map");
             v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
         }
 window.onresize=onWindowChange;
