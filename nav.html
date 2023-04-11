@@ -36,8 +36,7 @@
     
         
     <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
-    <script>// -1 == Main office
-// -2 == Commons
+    <script>
 roomToNode.set(148,"a0");
 roomToNode.set(149,"a0");
 roomToNode.set(150,"a0");
@@ -448,8 +447,10 @@ if(startingLocation!="Commons" && startingLocation!="Main Office") {
 if(endingLocation!="Commons" && endingLocation!="Main Office") {
     endingLocation=Number(endingLocation);
 }
-
-v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
+        function onWindowChange() {
+            v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
+        }
+window.onresize=onWindowChange;
 
 function mousePressed(e) {
     alert(e.clientX+","+e.clientY);
