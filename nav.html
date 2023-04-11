@@ -267,7 +267,7 @@ neighbors.set("b12",["b11","a28"]);</script>
     return false;
   }
 }</script>
-    <script>const mapp = document.getElementById("map");
+    <script>var mapp = document.getElementById("map");
 function v(startNode, endNode) {
     // Clean the canvas for future drawing
     pen.clearRect(0,0,canvas.width,canvas.height);
@@ -450,7 +450,7 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
     endingLocation=Number(endingLocation);
 }
         function onWindowChange() {
-            const mapp = document.getElementById("map");
+            var mapp = document.getElementById("map");
             v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
         }
 window.onresize=onWindowChange;
