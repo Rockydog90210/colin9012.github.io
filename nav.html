@@ -457,7 +457,7 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
             v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
         }
 window.onresize=onWindowChange;
-onWindowChange();
+window.onload = function() {onWindowChange();}
 function mousePressed(e) {
     alert(e.clientX+","+e.clientY);
 }
