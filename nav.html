@@ -364,8 +364,9 @@ function v(startNode, endNode) {
         if(currentNode.isGoal) {
             console.log("Found goal!");
             // Race to bottom backtracks from the goal using the parents to draw the line.
-            pen.fillStyle="rgb(255,0,0)";pen.beginPath();pen.arc(currentNode.x,currentNode.y,6,0,2*Math.PI);pen.fill();
+            
             raceToBottom(currentNode);
+            pen.fillStyle="rgb(255,0,0)";pen.beginPath();pen.arc(currentNode.x,currentNode.y,6,0,2*Math.PI);pen.fill();
             return;
         }
     
