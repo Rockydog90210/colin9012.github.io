@@ -13,7 +13,7 @@
                 <option value="" selected="selected">Pick room number</option>
             </select>
         </form>
-<a id="submitlink"href="">Submit</a>
+
         <button id="submit" onclick="submit();">Submit</button>
     </body>
     <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
@@ -132,7 +132,7 @@ roomToNode.set(015,"b3");</script>
     }
     function submit() {
         console.log(roomsSelect);
-        document.getElementById("submitlink").href="https://colin9012.github.io/nav.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
+        window.location.href="https://colin9012.github.io/nav.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
     }
     </script>
 </html>
