@@ -272,6 +272,9 @@ function v(startNode, endNode) {
     // Clean the canvas for future drawing
     pen.clearRect(0,0,canvas.width,canvas.height);
     
+    // Map img/width
+    var mapWidth=mapp.getBoundingClientRect().width;
+    var mapHeight=mapp.getBoundingClientRect().height;
     
     
     // Initialize the datas array which will store all nodes
@@ -280,7 +283,7 @@ function v(startNode, endNode) {
     // Here I load the nodes into datas[], and set isStart and isGoal if they are.
     for(var i=0;i<NUMBER_OF_MAIN_FLOOR_NODES;i++) {
         // "nodes" is a map with the name of the node (a15 for example) as key and its coords as values.
-        var coords=new node(nodes.get("a"+i)[0],nodes.get("a"+i)[1],false,false,"a",mapp.width,mapp.height);
+        var coords=new node(nodes.get("a"+i)[0],nodes.get("a"+i)[1],false,false,"a",mapWidth,mapHeight);
         //drawNode(coords,i);  //<--- optionally draw the node to screen
     
         if(i==startNode.substring(1)&&startNode.charAt(0)=='a') {coords.isStart=true;var start =i;}
@@ -291,7 +294,7 @@ function v(startNode, endNode) {
     // Load basement (The Pit) nodes
     for(var i=0;i<floorNodes.size;i++) {
         // "nodes" is a map with the name of the node (a15 for example) as key and its coords as values.
-        var coords=new node(floorNodes.get("b"+i)[0],floorNodes.get("b"+i)[1],false,false,"b",mapp.width,mapp.height);
+        var coords=new node(floorNodes.get("b"+i)[0],floorNodes.get("b"+i)[1],false,false,"b",mapWidth,mapHeight);
         //drawNode(coords,i);  //<--- optionally draw the node to screen
     
         if(i==startNode.substring(1)&&startNode.charAt(0)=='b') {coords.isStart=true;var start =i+NUMBER_OF_MAIN_FLOOR_NODES;}
