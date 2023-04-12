@@ -4,8 +4,8 @@
         <h1 style="margin: auto;"> OLY NAV</h1>
     </header>
     
-    <body style="font-size: 2vw">
-        <form name="form1" id="form1">
+    <body style="font-size: 2vw;text-align: center;">
+        <form name="form1" id="form1" style="margin: auto;text-align: center">
         Room # start: <select name="number" id="roomNumber">
                 <option value="" selected="selected">Pick room number</option>
             </select><br><br>
@@ -13,8 +13,9 @@
                 <option value="" selected="selected">Pick room number</option>
             </select>
         </form>
-        
-        <button id="submit" onclick="submit();">Submit</button>
+        <br>
+        <br>
+        <button id="submit" onclick="submit();" style="padding: 15px;border-radius: 15px;background-color: greenyellow">Submit</button>
     </body>
     <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
     <script src="loadRooms.js"></script>
