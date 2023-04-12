@@ -1,27 +1,42 @@
-<!DOCTYPE html>
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <h1>OLY NAV</h1>
+    <header style="font-size: 10vw;display: flex;justify-content:center;vertical-align: top;">
+        <h1 style="margin: auto;"> OLY NAV</h1>
+    </header>
     
-    
-        <div class="outsideWrapper">
-            <div class="wrapper">
-                <img id="map"class="backgroundMap" src="map.PNG">
-                <canvas class="toOverlay" id="canvas" width="800px" height="800px" onmousedown="mousePressed(event)" ></canvas>
-                <button style="position:absolute;z-index: 3" onclick="window.location.href='home.html'">Go back</button>
-            
-            </div>
-        </div>
-    
+    <body style="font-size: 2vw">
+        <form name="form1" id="form1">
+        Room # start: <select name="number" id="roomNumber">
+                <option value="" selected="selected">Pick room number</option>
+            </select><br><br>
+        Destination: <select name="number2" id="roomNumber2">
+                <option value="" selected="selected">Pick room number</option>
+            </select>
+        </form>
         
+        <button id="submit" onclick="submit();">Submit</button>
+    </body>
     <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
     <script src="loadRooms.js"></script>
-    <script src="loadNodes.js"></script>
-    <script src="loadNeighbors.js"></script>
-    
-    <script src="nodeClass.js"></script>
-    <script src="pathing.js"></script>
-    <script src="main.js"></script>
-    
+    <script>
+    var roomsSelect;
+    var destinationSelect;
+    roomToNodeAsc = new Map([...roomToNode.entries()].sort(function(a,b){
+        if(a[0]=="Commons" || a[0]=="Main Office") {return -1;}
+        if(b[0]=="Commons" || b[0]=="Main Office") {return 1;}
+        return Number(a[0])-Number(b[0]);
+    }));
+    window.onload = function() {
+        roomsSelect = document.getElementById("roomNumber");
+        destinationSelect = document.getElementById("roomNumber2");
+        for(var key of roomToNodeAsc.keys()) {
+            roomsSelect.options[roomsSelect.options.length]=new Option(key,key);
+            destinationSelect.options[destinationSelect.options.length]=new Option(key,key);
+        }
+    }
+    function submit() {
+        console.log(roomsSelect);
+        window.location.href="https://colin9012.github.io/nav.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
+    }
+    </script>
 </html>
