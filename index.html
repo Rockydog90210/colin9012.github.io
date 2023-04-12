@@ -1,138 +1,27 @@
+<!DOCTYPE html>
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <header style="font-size: 10vw;display: flex;justify-content:center;vertical-align: top;">
-        <h1 style="margin: auto;"> OLY NAV</h1>
-    </header>
+    <link rel="stylesheet" href="style.css">
+    <h1>OLY NAV</h1>
     
-    <body style="font-size: 3vw">
-        <form name="form1" id="form1"style="font-size: 2vw">
-        Room # start: <select name="number" id="roomNumber">
-                <option value="" selected="selected">Pick room number</option>
-            </select><br><br>
-        Destination: <select name="number2" id="roomNumber2">
-                <option value="" selected="selected">Pick room number</option>
-            </select>
-        </form>
-
-        <button id="submit" onclick="submit();">Submit</button>
-    </body>
+    
+        <div class="outsideWrapper">
+            <div class="wrapper">
+                <img id="map"class="backgroundMap" src="map.PNG">
+                <canvas class="toOverlay" id="canvas" width="800px" height="800px" onmousedown="mousePressed(event)" ></canvas>
+                <button style="position:absolute;z-index: 3" onclick="window.location.href='home.html'">Go back</button>
+            
+            </div>
+        </div>
+    
+        
     <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
-    <script>// -1 == Main office
-// -2 == Commons
-roomToNode.set(148,"a0");
-roomToNode.set(149,"a0");
-roomToNode.set(150,"a0");
-roomToNode.set(152,"a0");
-roomToNode.set(153,"a1");
-roomToNode.set(156,"a1");
-roomToNode.set(155,"a1");
-roomToNode.set(157,"a1");
-roomToNode.set(158,"a1");
-roomToNode.set(150,"a1");
-roomToNode.set(147,"a2");
-roomToNode.set(145,"a2");
-roomToNode.set(142,"a3");
-roomToNode.set(161,"a3");
-roomToNode.set(134,"a3");
-roomToNode.set(135,"a3");
-roomToNode.set(133,"a3");
-roomToNode.set(144,"a3");
-roomToNode.set(124,"a4");
-roomToNode.set(122,"a4");
-roomToNode.set(123,"a4");
-roomToNode.set(121,"a4");
-roomToNode.set(125,"a5");
-roomToNode.set(127,"a5");
-roomToNode.set(128,"a5");
-roomToNode.set(129,"a5");
-roomToNode.set(130,"a6");
-roomToNode.set(131,"a6");
-roomToNode.set(102,"a6");
-roomToNode.set(101,"a6");
-roomToNode.set(118,"a7");
-roomToNode.set(119,"a7");
-roomToNode.set(117,"a7");
-roomToNode.set(116,"a7");
-roomToNode.set(115,"a8");
-roomToNode.set(114,"a8");
-roomToNode.set(112,"a8");
-roomToNode.set(110,"a8");
-roomToNode.set(111,"a8");
-roomToNode.set(107,"a9");
-roomToNode.set(103,"a9");
-roomToNode.set(105,"a9");
-roomToNode.set("Main Office","a10");
-roomToNode.set(189,"a11");
-// a12 doesn't have any room its just a passover node
-roomToNode.set(180,"a13");
-roomToNode.set(181,"a13");
-roomToNode.set(100,"a14");
-roomToNode.set(132,"a14");
-roomToNode.set(126,"a14");
-roomToNode.set(138,"a15");
-roomToNode.set(136,"a15");
-roomToNode.set(137,"a15");
-roomToNode.set(141,"a15");
-// a16 doesn't have any room its just a passover node
-roomToNode.set(162,"a17");
-roomToNode.set("Commons","a17");
-// a18 and a19 doesnt have any room its just a passover node
-roomToNode.set(200,"a20");
-roomToNode.set(205,"a21");
-roomToNode.set(206,"a21");
-roomToNode.set(216,"a21");
-roomToNode.set(208,"a22");
-roomToNode.set(215,"a22");
-roomToNode.set(212,"a23");
-// a24 doesn't have any room its just a passover node
-roomToNode.set(230,"a25");
-roomToNode.set(231,"a25");
-roomToNode.set(232,"a25");
-roomToNode.set(233,"a26");
-roomToNode.set(234,"a26");
-roomToNode.set(236,"a26");
-roomToNode.set(235,"a26");
-roomToNode.set(237,"a27");
-roomToNode.set(238,"a27");
-roomToNode.set(239,"a27");
-// a28 doesn't have any room its just a passover node
-// TODO: map a29 to end
-roomToNode.set(165,"a30");
-roomToNode.set(166,"a30");
-roomToNode.set(168,"a30");
-roomToNode.set(167,"a30");
-roomToNode.set(163,"a30");
-roomToNode.set(171,"a31");
-roomToNode.set(176,"a32");
-roomToNode.set(175,"a32");
-roomToNode.set(001,"b0");
-roomToNode.set(003,"b0");
-roomToNode.set(004,"b0");
-roomToNode.set(005,"b1");
-roomToNode.set(006,"b1");
-roomToNode.set(007,"b1");
-roomToNode.set(008,"b1");
-roomToNode.set(009,"b2");
-roomToNode.set(010,"b2");
-roomToNode.set(011,"b2");
-roomToNode.set(012,"b2");
-roomToNode.set(013,"b3");
-roomToNode.set(014,"b3");
-roomToNode.set(015,"b3");</script>
-    <script>
-    var roomsSelect;
-    var destinationSelect;
-    window.onload = function() {
-        roomsSelect = document.getElementById("roomNumber");
-        destinationSelect = document.getElementById("roomNumber2");
-        for(var key of roomToNode.keys()) {
-            roomsSelect.options[roomsSelect.options.length]=new Option(key,key);
-            destinationSelect.options[destinationSelect.options.length]=new Option(key,key);
-        }
-    }
-    function submit() {
-        console.log(roomsSelect);
-        window.location.href="https://colin9012.github.io/nav.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
-    }
-    </script>
+    <script src="loadRooms.js"></script>
+    <script src="loadNodes.js"></script>
+    <script src="loadNeighbors.js"></script>
+    
+    <script src="nodeClass.js"></script>
+    <script src="pathing.js"></script>
+    <script src="main.js"></script>
+    
 </html>
