@@ -46,9 +46,7 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
         }
 window.onresize=onWindowChange;
 window.onload = function() {onWindowChange();}
-function mousePressed(e) {
-    alert(e.clientX+","+e.clientY);
-}
+
 
 
 function getSmallestIndex(n) {
