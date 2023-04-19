@@ -1,7 +1,7 @@
 console.log("hello");
 params = new URLSearchParams(window.location.search);
 function onDeviceChange(event) {
-  compassOutput.innerHTML=(event.alpha);
+  document.getElementById("outputCompass").innerHTML=(event.alpha);
 }
 function drawNode(n, index) {
   pen.fillStyle="rgb(100,0,0)";
