@@ -45,9 +45,12 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
             v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
         }
 window.onresize=onWindowChange;
-window.onload = function() {onWindowChange();}
+window.onload = function() {onWindowChange();var compassOutput=document.getElementById("outputCompass");}
 
-
+function onDeviceChange(event) {
+  compassOutput.innerHTML=(event.alpha);
+}
+window.addEventListener("deviceorientation", onDeviceChange,true);
 
 function getSmallestIndex(n) {
   var min=0;
