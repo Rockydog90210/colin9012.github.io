@@ -1,6 +1,8 @@
 console.log("hello");
 params = new URLSearchParams(window.location.search);
-
+function onDeviceChange(event) {
+  compassOutput.innerHTML=(event.alpha);
+}
 function drawNode(n, index) {
   pen.fillStyle="rgb(100,0,0)";
   if(n.isStart) {
@@ -45,12 +47,10 @@ if(endingLocation!="Commons" && endingLocation!="Main Office") {
             v(roomToNode.get(startingLocation),roomToNode.get(endingLocation));
         }
 window.onresize=onWindowChange;
-window.onload = function() {onWindowChange();var compassOutput=document.getElementById("outputCompass");}
+window.onload = function() {onWindowChange();var compassOutput=document.getElementById("outputCompass");window.addEventListener("deviceorientation", onDeviceChange,true);}
 
-function onDeviceChange(event) {
-  compassOutput.innerHTML=(event.alpha);
-}
-window.addEventListener("deviceorientation", onDeviceChange,true);
+
+
 
 function getSmallestIndex(n) {
   var min=0;
