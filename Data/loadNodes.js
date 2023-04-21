@@ -33,6 +33,10 @@ nodes.set("a31", [254,214]);
 nodes.set("a32", [291,215]);
 nodes.set("a33", [244,215]);
 nodes.set("a34", [216,214]);
+nodes.set("a35",[103,184]);
+nodes.set("a36",[103,226]);
+nodes.set("a37",[205,60]);
+nodes.set("a38",[103,60]);
 var NUMBER_OF_MAIN_FLOOR_NODES=nodes.size;
 // The Pit & Downstairs
 floorNodes.set("b0",[339,315]);
