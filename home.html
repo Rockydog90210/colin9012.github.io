@@ -1,0 +1,44 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header style="font-size: 10vw;display: flex;justify-content:center;vertical-align: top;">
+        <h1 style="margin: auto;"> OLY NAV</h1>
+    </header>
+    
+    <body style="font-size: 2vw;text-align: center;">
+        <form name="form1" id="form1" style="margin: auto;text-align: center">
+        Room # start: <select name="number" id="roomNumber">
+                <option value="" selected="selected">Pick room number</option>
+            </select><br><br>
+        Destination: <select name="number2" id="roomNumber2">
+                <option value="" selected="selected">Pick room number</option>
+            </select>
+        </form>
+        <br>
+        <br>
+        <button id="submit" onclick="submit();" style="padding: 15px;border-radius: 15px;background-color: greenyellow">Submit</button>
+    </body>
+    <script>const nodes = new Map();const floorNodes = new Map();const neighbors = new Map();const roomToNode = new Map();</script>
+    <script src="Data/loadRooms.js"></script>
+    <script>
+    var roomsSelect;
+    var destinationSelect;
+    roomToNodeAsc = new Map([...roomToNode.entries()].sort(function(a,b){
+        if(a[0]=="Commons" || a[0]=="Main Office") {return -1;}
+        if(b[0]=="Commons" || b[0]=="Main Office") {return 1;}
+        return Number(a[0])-Number(b[0]);
+    }));
+    window.onload = function() {
+        roomsSelect = document.getElementById("roomNumber");
+        destinationSelect = document.getElementById("roomNumber2");
+        for(var key of roomToNodeAsc.keys()) {
+            roomsSelect.options[roomsSelect.options.length]=new Option(key,key);
+            destinationSelect.options[destinationSelect.options.length]=new Option(key,key);
+        }
+    }
+    function submit() {
+        console.log(roomsSelect);
+        //window.location.href="https://colin9012.github.io/nav.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
+        window.location.href="file:///E:/ColinStuff/OlyNav/index.html?start="+roomsSelect.options[roomsSelect.selectedIndex].text+"&end="+destinationSelect.options[destinationSelect.selectedIndex].text;
+    }
+    </script>
+</html>
