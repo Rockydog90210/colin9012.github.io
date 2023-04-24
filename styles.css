@@ -1,0 +1,41 @@
+
+button{
+    background-color:blue;
+    color: white;
+    font-family: comic sans ms;
+    outline:none;
+}
+    
+body{
+    text-align:center;
+    
+}
+    
+button:active{
+        background-color:darkBlue;
+        
+}
+p{
+    font-family: comic sans ms;
+    font-size:35px;
+    color:purple;  
+}
+
+h3,h6{
+    color:purple;
+    font-family: comic sans ms;
+}
+
+body{
+    background-color:lightBlue;    
+    
+}
+
+#clickPowerButtonX4, #clickPowerButtonX8, #autoClickButtonX2{
+    display:none;    
+}
+
+#moneyButton:active{
+    transform: scale(1.05);
+    animation:dragon;    
+}
