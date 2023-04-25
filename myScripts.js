@@ -49,7 +49,7 @@
 
             }
             // end test functions blah
-
+            // blah blah test?
             
             
             function checkClickPower(){ //checks your click power to see how much your total momney needs to go up
