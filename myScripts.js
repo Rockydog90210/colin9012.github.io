@@ -2,6 +2,7 @@
             let clickPower = 0;
             let autoClickPower = 0;
             dragonFrame = 1; // so the computer knows witch frame to display when you click
+            x = 30;
             
             const moneyButton = document.getElementById("moneyButton") // defines my buttons 
             
@@ -33,6 +34,22 @@
             }
             
             
+             // start test functions
+             function buyButton(){ //name up for change, this function "buys" the button
+                updateCostButton();//would update 
+                subtractMoney();// would subtract the cost of the button from your money 
+            }
+
+            function updateCostButton() { //updates the cost of the button
+                x = Math.round(x * 1.05)
+            }
+
+            function subtractMoney(){ // subtracts the money
+                totMoney -= x;
+
+            }
+            // end test functions blah
+
             
             
             function checkClickPower(){ //checks your click power to see how much your total momney needs to go up
