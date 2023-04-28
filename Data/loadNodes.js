@@ -52,3 +52,4 @@ floorNodes.set("b9",[657,442]);
 floorNodes.set("b10",[682,442]);
 floorNodes.set("b11",[703,442]);
 floorNodes.set("b12",[703,453]);
+floorNodes.set("b13",[682,365]);
