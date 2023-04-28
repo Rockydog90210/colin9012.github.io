@@ -42,7 +42,7 @@ neighbors.set("b0", ["a0","b1"]);
 neighbors.set("b1", ["b0","b2"]);
 neighbors.set("b2", ["a1","b1","b3"]);
 neighbors.set("b3", ["b2"]);
-neighbors.set("b4",["b5","b7","b13]);
+neighbors.set("b4",["b5","b7","b13"]);
 neighbors.set("b5",["b4"]);
 neighbors.set("b6",["b7","b8","a22"]);
 neighbors.set("b7",["b4","b6"]);
