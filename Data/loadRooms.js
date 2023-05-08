@@ -100,7 +100,7 @@ roomToNode.set(012,"b2");
 roomToNode.set(013,"b3");
 roomToNode.set(014,"b3");
 roomToNode.set(015,"b3");
-roomToNode.set(017,"b4");
+roomToNode.set(17,"b4");
 roomToNode.set(018,"b13");
 roomToNode.set(019,"b13");
 roomToNode.set(20,"b13");
